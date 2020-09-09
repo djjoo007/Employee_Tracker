@@ -29,11 +29,11 @@ function start() {
                 'Add Department',
                 'Add Role',
                 'Add Employee',
-                'View Departments',
-                'View Roles',
-                'View Employees',
-                'Update Roles',
-                'Update Employees',
+                'View Department',
+                'View Role',
+                'View Employee',
+                'Update Role',
+                'Update Employee',
                 'Exit'
             ]
         })
@@ -45,7 +45,24 @@ function start() {
                 case 'Add Role':
                     addRole();
                     break;
-                case 'Add Employee'
+                case 'Add Employee':
+                    addEmployee();
+                    break;
+                case 'View Department':
+                    viewDepartment();
+                    break;
+                case 'View Role':
+                    viewRole();
+                    break;
+                case 'View Employee':
+                    viewEmployee();
+                    break;
+                case 'Update Role':
+                    updateRole();
+                    break;
+                case 'Update Employee',
+                    updateEmployee();
+                    break;
             }
 
         })
