@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+const { allowedNodeEnvironmentFlags } = require('process');
 
-const { start } = require('repl');
 const db = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -15,7 +15,6 @@ db.connect ((err) => {
     if (err) {
         throw err;
     }
-
     start();
 });
 
@@ -29,7 +28,7 @@ function start() {
             choices: [
                 'Add Department',
                 'Add Role',
-                'Add Employees',
+                'Add Employee',
                 'View Departments',
                 'View Roles',
                 'View Employees',
@@ -37,5 +36,17 @@ function start() {
                 'Update Employees',
                 'Exit'
             ]
+        })
+        .then(function(answer) {
+            switch (answer.action) {
+                case 'Add Department':
+                    addDepartment();
+                    break;
+                case 'Add Role':
+                    addRole();
+                    break;
+                case 'Add Employee'
+            }
+
         })
 }
