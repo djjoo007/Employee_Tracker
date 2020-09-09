@@ -1,4 +1,6 @@
 const mysql = require('mysql');
+const inquirer = require('inquirer');
+
 const { start } = require('repl');
 const db = mysql.createConnection({
     host: 'localhost',
@@ -18,3 +20,6 @@ db.connect ((err) => {
 });
 
 // function prompts the user to choose an action
+function start() {
+
+}
