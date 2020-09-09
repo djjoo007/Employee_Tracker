@@ -26,5 +26,3 @@ CREATE TABLE employee(
   role_id INT(20) NOT NULL,
   manager_id INT(20) NOT NULL
 );
-
-SELECT * FROM department;
