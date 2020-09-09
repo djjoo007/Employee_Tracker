@@ -32,8 +32,7 @@ function start() {
                 'View Department',
                 'View Role',
                 'View Employee',
-                'Update Role',
-                'Update Employee',
+                'Update Employee Role',
                 'Exit'
             ]
         })
@@ -57,13 +56,24 @@ function start() {
                 case 'View Employee':
                     viewEmployee();
                     break;
-                case 'Update Role':
-                    updateRole();
+                case 'Update Employee Role':
+                    updateEmployeeRole();
                     break;
-                case 'Update Employee',
-                    updateEmployee();
+                case 'Exit':
+                    db.end();
                     break;
             }
+        });
+}
+
+function addDepartment() {
+    inquirer
+        .prompt ({
+            name: 'Department Name',
+            type: 'input',
+            message: 'Please type the Department Name that is being added.'
+        })
+        .then(function(answer) {
 
         })
 }
