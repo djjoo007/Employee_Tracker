@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
-const { allowedNodeEnvironmentFlags } = require('process');
+
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -69,11 +69,23 @@ function start() {
 function addDepartment() {
     inquirer
         .prompt ({
-            name: 'Department Name',
+            name: 'name',
             type: 'input',
             message: 'Please type the Department Name that is being added.'
         })
         .then(function(answer) {
 
+        })
+}
+
+function addRole() {
+    inquirer
+        .prompt ({
+            name: 'role',
+            type: 'input',
+            message: 'Please type the Role Name that is being added.'
+        })
+        .then (function(answer) {
+            
         })
 }
