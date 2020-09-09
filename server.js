@@ -21,5 +21,21 @@ db.connect ((err) => {
 
 // function prompts the user to choose an action
 function start() {
-
+    inquirer
+        .prompt({
+            name: 'action',
+            type: 'rawlist',
+            messages: 'What would you like to do?',
+            choices: [
+                'Add Department',
+                'Add Role',
+                'Add Employees',
+                'View Departments',
+                'View Roles',
+                'View Employees',
+                'Update Roles',
+                'Update Employees',
+                'Exit'
+            ]
+        })
 }
