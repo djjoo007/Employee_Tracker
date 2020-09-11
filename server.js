@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 
-
+// Connection information for SQL Database
 const db = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -10,7 +10,7 @@ const db = mysql.createConnection({
     database: 'employee_trackerDB'
 });
 
-// connect to mySQL server and SQL database
+// Connect to mySQL Server and SQL database
 db.connect ((err) => {
     if (err) {
         throw err;
@@ -18,7 +18,7 @@ db.connect ((err) => {
     start();
 });
 
-// function prompts the user to choose an action
+// Function which prompts the user to choose an action
 function start() {
     inquirer
         .prompt({
