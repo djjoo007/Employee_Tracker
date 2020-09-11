@@ -71,7 +71,7 @@ function addDepartment() {
         .prompt ({
             name: 'name',
             type: 'input',
-            message: 'Please type the Department Name that is being added.'
+            message: 'Please enter the Department Name that is being added.'
         })
         .then(function(answer) {
 
@@ -81,11 +81,69 @@ function addDepartment() {
 function addRole() {
     inquirer
         .prompt ({
-            name: 'role',
+            name: 'title',
             type: 'input',
-            message: 'Please type the Role Name that is being added.'
+            message: 'Please enter the Employee Title.'
+        }, 
+        {
+            name: 'salary',
+            type: 'input',
+            message: 'Please enter the Employee Salary.'
+        },
+        {
+            name: 'department_id',
+            type: 'input',
+            message: 'Please enter the Employee Department ID.'
         })
         .then (function(answer) {
             
         })
+}
+
+function addEmployee() {
+    inquirer
+        .prompt ({
+            name: 'first_name',
+            type: 'input',
+            message: 'Please enter the First Name of Employee.'
+        }, 
+        {
+            name: 'last_name',
+            type: 'input',
+            message: 'Please enter the Last Name of Employee.'
+        },
+        {
+            name: 'role_id',
+            type: 'input',
+            message: 'Please enter the Role ID of Employee.'
+        },
+        {
+            name: 'manager_id',
+            type: 'input',
+            message: 'Please enter the Manager ID of Employee.'
+        })
+        .then (function(answer) {
+            
+        })
+}
+
+function viewDepartment() {
+
+
+}
+
+function viewRole() {
+
+
+}
+
+function viewEmployee() {
+
+
+}
+
+function updateEmployeeRole() {
+
+
+    
 }
