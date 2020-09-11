@@ -74,7 +74,7 @@ function addDepartment() {
             message: 'Please enter the Department Name that is being added.'
         })
         .then(function(answer) {
-
+            db.query('INSERT INTO department ?')
         })
 }
 
@@ -128,8 +128,9 @@ function addEmployee() {
 }
 
 function viewDepartment() {
-
-
+    db.query('Select * FROM department', function(err, res) {
+        if (err) throw err;
+    });
 }
 
 function viewRole() {
