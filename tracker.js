@@ -74,8 +74,16 @@ function addDepartment() {
             message: 'Please enter the Department Name that is being added.'
         })
         .then(function(answer) {
-            db.query('INSERT INTO department ?')
-        })
+            db.query('INSERT INTO department SET ?', 
+            {
+                name: answer.name
+            },
+            function(err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + ' Department inserted!');
+                start();
+            })
+        });
 }
 
 function addRole() {
@@ -96,7 +104,17 @@ function addRole() {
             message: 'Please enter the Employee Department ID.'
         })
         .then (function(answer) {
-            
+            db.query('INSERT INTO role SET ?', 
+            {
+                title: answer.title,
+                salary: answer.salary,
+                department_id: answer.department_id
+            },
+            function(err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + ' Role inserted!');
+                start();
+            })
         })
 }
 
@@ -123,28 +141,78 @@ function addEmployee() {
             message: 'Please enter the Manager ID of Employee.'
         })
         .then (function(answer) {
-            
+            db.query('INSERT INTO employee SET ?', 
+            {
+                first_name: answer.first_name,
+                last_name: answer.last_name,
+                role_id: answer.role_id,
+                manager_id: answer.manager_id
+            },
+            function(err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + ' Employee inserted!');
+                start();
+            })            
         })
 }
 
 function viewDepartment() {
-    db.query('Select * FROM department', function(err, res) {
+    db.query('SELECT * FROM department;', function(err, res) {
         if (err) throw err;
+        for (var i = 0; i < res.length; i++) {
+            console.log('department_id: ' + res[i].id + ' department_name: ' + res[i].name);
+        }
+        start();
     });
 }
 
 function viewRole() {
-
+    db.query('SELECT * FROM role;', function(err, res) {
+        if (err) throw err;
+        for (var i = 0; i < res.length; i++) {
+            console.log('Role ID: ' + res[i].id + ' title: ' + res[i].title + ' salary: ' + res[i].salary + ' department_id: ' + res[i].department_id);
+        }
+        start();
+    });
 
 }
 
 function viewEmployee() {
-
-
+    db.query('SELECT * FROM employee;', function(err, res) {
+        if (err) throw err;
+        for (var i = 0; i < res.length; i++) {
+            console.log('Employee ID: ' + res[i].id + ' first_name: ' + res[i].first_name + ' last_name: ' + res[i].last_name + ' role_id: ' + res[i].role_id + ' manager_id: ' + res[i].manager_id);
+        }
+        start();
+    });
 }
 
 function updateEmployeeRole() {
-
-
+    inquirer
+        .prompt({
+            name: 'employee_id',
+            type: 'input',
+            message: 'Please enter the Employee ID.'            
+        },
+        {
+            name: 'role_id',
+            type: 'input',
+            message: 'Please enter new Role ID for Employee,'
+        },
+        ). then (function(answer) {
+            db.query('UPDATE employee SET ? WHERE ?', 
+            {
+                role_id: answer.role_id
+            },
+            {
+                id: answer.employee_id
+            },
+            function(err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + ' Employee updated!');
+                start();
+            })            
+        })
+    
     
 }
