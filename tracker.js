@@ -190,22 +190,20 @@ function viewEmployee() {
 function updateEmployeeRole() {
     inquirer
         .prompt([{
-            name: 'employee_id',
+            name: 'employee',
             type: 'input',
-            message: 'Please enter the Employee ID.'            
+            message: 'Please enter the Employee First Name.'            
         },
         {
             name: 'role_id',
             type: 'input',
-            message: 'Please enter new Role ID for Employee,'
+            message: 'Please enter new Role ID for Employee.'
         }]). then (function(answer) {
-            db.query('UPDATE employee SET ? WHERE ?', 
-            {
-                role_id: answer.role_id
-            },
-            {
-                id: answer.employee_id
-            },
+            db.query('UPDATE employee SET role_id=? WHERE employee.first_name=?', 
+            [
+                answer.role_id,
+                answer.employee
+            ],
             function(err, res) {
                 if (err) throw err;
                 console.log(res.affectedRows + ' Employee updated!');
