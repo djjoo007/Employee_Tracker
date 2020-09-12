@@ -160,7 +160,7 @@ function viewDepartment() {
     db.query('SELECT * FROM department;', function(err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            console.log('department_id: ' + res[i].id + ' department_name: ' + res[i].name);
+            console.log('Department Id: ' + res[i].id + ' | Department Name: ' + res[i].name);
         }
         start();
     });
@@ -170,7 +170,7 @@ function viewRole() {
     db.query('SELECT * FROM role;', function(err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            console.log('Role ID: ' + res[i].id + ' title: ' + res[i].title + ' salary: ' + res[i].salary + ' department_id: ' + res[i].department_id);
+            console.log('Role ID: ' + res[i].id + ' | Title: ' + res[i].title + ' | Salary: ' + res[i].salary + ' | Department Id: ' + res[i].department_id);
         }
         start();
     });
@@ -181,7 +181,7 @@ function viewEmployee() {
     db.query('SELECT * FROM employee;', function(err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            console.log('Employee ID: ' + res[i].id + ' first_name: ' + res[i].first_name + ' last_name: ' + res[i].last_name + ' role_id: ' + res[i].role_id + ' manager_id: ' + res[i].manager_id);
+            console.log('Employee ID: ' + res[i].id + ' | First Name: ' + res[i].first_name + ' | Last Name: ' + res[i].last_name + ' | Role Id: ' + res[i].role_id + '  | Manager ID: ' + res[i].manager_id);
         }
         start();
     });
