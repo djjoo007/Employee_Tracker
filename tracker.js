@@ -88,28 +88,28 @@ function addDepartment() {
 
 function addRole() {
     inquirer
-        .prompt ({
-            name: 'title',
-            type: 'input',
-            message: 'Please enter the Employee Title.'
-        }, 
-        {
-            name: 'salary',
-            type: 'input',
-            message: 'Please enter the Employee Salary.'
-        },
-        {
-            name: 'department_id',
-            type: 'input',
-            message: 'Please enter the Employee Department ID.'
-        })
+    .prompt ([{
+        name: 'title',
+        type: 'input',
+        message: 'Please enter the Employee Title.'
+    },
+    {
+        name: 'salary',
+        type: 'input',
+        message: 'Please enter the Employee Salary.'
+    },
+    {
+        name: 'department_id',
+        type: 'input',
+        message: 'Please enter the Employee Department ID.'
+    }])
         .then (function(answer) {
-            db.query('INSERT INTO role SET ?', 
-            {
-                title: answer.title,
-                salary: answer.salary,
-                department_id: answer.department_id
-            },
+            db.query('INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)', 
+            [
+                answer.title,
+                answer.salary,
+                answer.department_id
+            ],
             function(err, res) {
                 if (err) throw err;
                 console.log(res.affectedRows + ' Role inserted!');
@@ -120,7 +120,7 @@ function addRole() {
 
 function addEmployee() {
     inquirer
-        .prompt ({
+        .prompt ([{
             name: 'first_name',
             type: 'input',
             message: 'Please enter the First Name of Employee.'
@@ -139,15 +139,15 @@ function addEmployee() {
             name: 'manager_id',
             type: 'input',
             message: 'Please enter the Manager ID of Employee.'
-        })
+        }])
         .then (function(answer) {
-            db.query('INSERT INTO employee SET ?', 
-            {
-                first_name: answer.first_name,
-                last_name: answer.last_name,
-                role_id: answer.role_id,
-                manager_id: answer.manager_id
-            },
+            db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', 
+            [
+                answer.first_name,
+                answer.last_name,
+                answer.role_id,
+                answer.manager_id
+            ],
             function(err, res) {
                 if (err) throw err;
                 console.log(res.affectedRows + ' Employee inserted!');
