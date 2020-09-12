@@ -7,14 +7,14 @@ CREATE DATABASE employee_trackerDB;
 -- Use the DB "employee-trackerDB" for all the rest of the script
 USE employee_trackerDB;
 
--- Create table for "department"
+-- Create Table for "department"
 CREATE TABLE department(
   id INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id),
   name VARCHAR(30) NOT NULL
 );
 
--- Create table for "role"
+-- Create Table for "role"
 CREATE TABLE role(
   id INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id),
@@ -23,7 +23,7 @@ CREATE TABLE role(
   department_id INT
 );
 
--- Create table for "employee"
+-- Create Table for "employee"
 CREATE TABLE employee(
   id INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id),
