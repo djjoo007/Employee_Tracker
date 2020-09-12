@@ -189,7 +189,7 @@ function viewEmployee() {
 
 function updateEmployeeRole() {
     inquirer
-        .prompt({
+        .prompt([{
             name: 'employee_id',
             type: 'input',
             message: 'Please enter the Employee ID.'            
@@ -198,8 +198,7 @@ function updateEmployeeRole() {
             name: 'role_id',
             type: 'input',
             message: 'Please enter new Role ID for Employee,'
-        },
-        ). then (function(answer) {
+        }]). then (function(answer) {
             db.query('UPDATE employee SET ? WHERE ?', 
             {
                 role_id: answer.role_id
