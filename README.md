@@ -18,12 +18,6 @@ Utilized:
 - npm packages (inquirer, mySQL)
 
 ### Link
+Link to Video Demonstration:
 
-* You may wish to include a `seed.sql` file to pre-populate your database. This will make development of individual features much easier.
-
-* Focus on getting the basic functionality completed before working on more advanced features.
-
-* Review the week's activities for a refresher on MySQL.
-
-* Check out [SQL Bolt](https://sqlbolt.com/) for some extra MySQL help.
-
+https://drive.google.com/file/d/1AZG0Yfu1JWG2IsOw3IOTQau5ueEp6Bk8/view

@@ -182,7 +182,7 @@ function viewEmployee() {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
             console.log('Employee ID: ' + res[i].id + ' | First Name: ' + res[i].first_name + ' | Last Name: ' + res[i].last_name + ' | Role Id: ' + res[i].role_id + '  | Manager ID: ' + res[i].manager_id);
-        }
+        }   
         start();
     });
 }
@@ -191,7 +191,7 @@ function updateEmployeeRole() {
     inquirer
         .prompt([{
             name: 'employee',
-            type: 'input',
+            type: 'input',                 
             message: 'Please enter the Employee First Name.'            
         },
         {
